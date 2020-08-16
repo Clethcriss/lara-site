@@ -1,0 +1,11 @@
+.header-component {
+    text-align: left;
+    background: black;
+    color: white;
+}
+
+.header-component span {
+    margin: 10px 5px;
+    border: white 1px solid;
+    padding: 10px 5px;
+}

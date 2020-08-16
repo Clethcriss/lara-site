@@ -1,6 +1,6 @@
 import React from 'react';
 import {navigate} from "../common/functions";
-
+import '../style/header.css';
 
 export interface IHeaderComponentProps {
 
@@ -26,7 +26,7 @@ class HeaderComponent extends React.Component<IHeaderComponentProps, IHeaderComp
     render() {
 
         return (
-            <div>
+            <div className='header-component'>
                 <nav>
 
 
