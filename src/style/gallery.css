@@ -1,0 +1,9 @@
+
+
+
+.gallery img:hover {
+    position: relative;
+    width: 360px;
+    height: 480px;
+    z-index: 1;
+}
