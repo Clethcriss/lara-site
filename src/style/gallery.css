@@ -1,9 +1,29 @@
+.gallery {
+    background-image: url("/src/images/brickwall.jpg");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+.image-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    align-items: center;
+}
 
-
-
-.gallery img:hover {
+.dumb {
+    height: 500px;
     position: relative;
+}
+
+.image-container img {
+    height: 240px;
+    width: 180px;
+    border: black solid 25px;
+    margin: 10px;
+}
+
+.image-container img:hover {
     width: 360px;
     height: 480px;
-    z-index: 1;
 }

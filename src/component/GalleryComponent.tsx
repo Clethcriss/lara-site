@@ -1,5 +1,6 @@
 import React from 'react';
 import '../style/gallery.css';
+import Background from '../images/brickwall.jpg';
 
 export interface IGalleryComponentProps {
 
@@ -22,16 +23,21 @@ class GalleryComponent extends React.Component<IGalleryComponentProps, IGalleryC
         this.setState({
             images: ['images/chihiro.jpg', 'images/kovacs.jpg', 'images/kutyi.jpg']
         });
+
     }
 
     render() {
         const {images} = this.state;
         return (
-            <div className="gallery">
+            <div className="gallery" style={{backgroundImage: `url(${Background})`}}>
                 <h1>Here will be the Gallery!</h1>
-                {images.map((img, index) => {
-                    return <img height='240px' width='180px' src={img} alt={`kepcske-${index}`}/>
-                })}
+                <div className="dumb">
+                    <div className="image-container">
+                        {images.map((img, index) => {
+                            return <img src={img} alt={`kepcske-${index}`}/>
+                        })}
+                    </div>
+                </div>
             </div>
         );
     }
