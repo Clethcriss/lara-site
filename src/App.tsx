@@ -16,7 +16,7 @@ function App() {
       <HeaderComponent/>
       <Router history={history}>
           <Switch>
-              <Route exact={true} path='/home' >
+              <Route exact={true} path={['/', '/home']} >
                   <HomeComponent/>
               </Route>
               <Route exact={true} path='/about'>
