@@ -26,8 +26,12 @@ class GalleryComponent extends React.Component<IGalleryComponentProps, IGalleryC
 
     }
 
-    handleClick = (e: any): void => {
+    handleClick = (e: any, detailsIndex: number): void => {
         e.target.classList.toggle('image-clicked');
+        const detailsElement = document.getElementById(`image-details-${detailsIndex}`);
+        if (detailsElement) {
+            detailsElement.style.visibility = detailsElement.style.visibility === 'visible' ? 'hidden' : 'visible';
+        }
     }
 
     render() {
@@ -36,7 +40,18 @@ class GalleryComponent extends React.Component<IGalleryComponentProps, IGalleryC
             <div className="gallery" style={{backgroundImage: `url(${Background})`}}>
                     <div className="image-container">
                         {images.map((img, index) => {
-                            return <img className='image-container-image' src={img} alt={`kepcske-${index}`} onClick={this.handleClick}/>
+                            return (
+                                <div>
+                                    <img className='image-container-image' src={img} alt={`kepcske-${index}`} onClick={(e) => {
+                                        this.handleClick(e, index);
+                                    }}/>
+                                    <div className='image-details' id={`image-details-${index}`}>
+                                        <span>Hablaty hablaty</span>
+                                        <span>Valami tok erdes dolog</span>
+                                        <span>500x400</span>
+                                    </div>
+                                </div>
+                            )
                         })}
                     </div>
                 </div>

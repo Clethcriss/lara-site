@@ -6,29 +6,32 @@
     display: flex;
 }
 .image-container {
-    bottom: 0;
     width: 100%;
     align-items: center;
-    background-size: cover;
     display: flex;
 }
 
 .image-container-image {
     height: 240px;
     width: 180px;
-    border: black solid 25px;
+    border: black solid 20px;
+    border-radius: 5px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0 14px 28px black;
     position: relative;
+    transition: 500ms;
 }
 
 .image-container-image.image-clicked {
     z-index: 1;
-    left: calc(50% - 180px);
     width: 360px;
     height: 480px;
     box-shadow: 0 28px 56px black;
-    position: absolute;
+}
+
+.image-details {
+    margin-top: 20px;
+    visibility: hidden;
 }
