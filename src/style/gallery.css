@@ -1,37 +1,73 @@
+html, body {
+    height: 100%;
+}
+
 .gallery {
     background-image: url("/src/images/brickwall2.jpg");
     background-size: cover;
-    height: 95%;
+    background-repeat: repeat;
+    height: 100%;
     width: 100%;
-    display: flex;
-}
-.image-container {
-    width: 100%;
-    align-items: center;
     display: flex;
 }
 
-.image-container-image {
+.gallery .expanded {
     height: 240px;
     width: 180px;
     border: black solid 20px;
     border-radius: 5px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     box-shadow: 0 14px 28px black;
-    position: relative;
     transition: 500ms;
 }
 
-.image-container-image.image-clicked {
-    z-index: 1;
+.gallery .expanded.image-clicked {
     width: 360px;
     height: 480px;
     box-shadow: 0 28px 56px black;
+    transition: 500ms;
+    transition-delay: 500ms;
+}
+
+.gallery .expanded-image-hidden {
+    display: none;
+}
+
+.gallery .expanded-image-show {
+    display: block;
+}
+.image-container {
+    padding-top: 20px;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-container .row {
+    display: flex;
+    flex-direction: row;
+}
+
+.image-entity {
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+.image-container-image {
+    position: relative;
+    height: 240px;
+    width: 180px;
+    border: black solid 20px;
+    border-radius: 5px;
+    display: block;
+    box-shadow: 0 14px 28px black;
+    transition: 500ms;
 }
 
 .image-details {
     margin-top: 20px;
     visibility: hidden;
+    height: 18px;
+    max-width: 220px;
 }
