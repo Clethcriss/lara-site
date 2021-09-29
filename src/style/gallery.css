@@ -8,25 +8,12 @@ html, body {
     background-repeat: repeat;
     height: 100%;
     width: 100%;
-    display: flex;
 }
 
-.gallery .expanded {
-    height: 240px;
-    width: 180px;
-    border: black solid 20px;
-    border-radius: 5px;
-    display: block;
-    box-shadow: 0 14px 28px black;
-    transition: 500ms;
-}
-
-.gallery .expanded.image-clicked {
+.gallery .image-clicked {
+    left: -100px;
     width: 360px;
     height: 480px;
-    box-shadow: 0 28px 56px black;
-    transition: 500ms;
-    transition-delay: 500ms;
 }
 
 .gallery .expanded-image-hidden {
@@ -56,13 +43,14 @@ html, body {
 
 .image-container-image {
     position: relative;
+    left: 0;
     height: 240px;
     width: 180px;
     border: black solid 20px;
     border-radius: 5px;
     display: block;
     box-shadow: 0 14px 28px black;
-    transition: 500ms;
+    transition: all 500ms;
 }
 
 .image-details {

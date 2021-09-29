@@ -10,31 +10,54 @@ export interface IPictureComponentProps {
 }
 
 export interface IPictureComponentState {
-
+    classNames: string[];
 }
 
 class PictureComponent extends React.Component<IPictureComponentProps, IPictureComponentState> {
     constructor(props: IPictureComponentProps) {
         super(props);
+        this.state = {
+            classNames: []
+        }
+
+        this.getClassNames = this.getClassNames.bind(this);
+    }
+
+    componentDidMount() {
+        this.setState({
+            classNames: [
+                'image-container-image'
+            ]
+        }, () => {
+            if (this.props.expanded) {
+                setTimeout(() => {
+                    this.setState({
+                        classNames: [...this.state.classNames, 'image-clicked']
+                    });
+                });
+            }
+        })
     }
 
     handleClick = (e: any, id: string): void => {
         if (this.props.onClick) {
             this.props.onClick(e, id);
         }
+    }
 
-        /*e.target.classList.toggle('image-clicked');
-        const detailsElement = document.getElementById(`image-details-${id}`);
-        if (detailsElement) {
-            detailsElement.style.visibility = detailsElement.style.visibility === 'visible' ? 'hidden' : 'visible';
-        }*/
+    getClassNames() {
+        const {classNames} = this.state;
+        let stringClassNames = '';
+        classNames.forEach(className => stringClassNames += ` ${className}`);
+        return stringClassNames;
     }
 
     render() {
         const {source, description, id} = this.props;
+        const classNames = this.getClassNames();
         return (
             <div className="image-entity">
-                <img className={`image-container-image ${this.props.clicked ? 'image-clicked' : ''} ${this.props.expanded ? 'expanded' : ''}`} src={source} alt={`kepcske-${id}`} onClick={(e) => {
+                <img className={`${classNames}`} src={source} alt={`kepcske-${id}`} onClick={(e) => {
                     this.handleClick(e, id);
                 }}/>
                 <div className='image-details' id={`image-details-${id}`}>
